@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocket Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom, #000000, #0d0d2b, #1a1a3d);
+      color: white;
+      text-align: center;
+    }
+    .button {
+      background: linear-gradient(to right, #ff004f, #b3002d);
+      border: none;
+      border-radius: 20px;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff004f;
+    }
+    .highlight {
+      background: linear-gradient(to right, #00ff00, #009900);
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00ff00;
+      }
+      to {
+        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+      }
+    }
+    .signal {
+      margin: 20px;
+      font-size: 24px;
+      color: #00ff00;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border-bottom: 1px solid white;
+      padding: 10px;
+    }
+    .comments {
+      margin-top: 40px;
+    }
+    .comment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: left;
+    }
+    .comment img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .comment-info span:first-child {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button class="button">විරාත්ට ලියන්න</button>
+  <button class="button">Aviator ක්‍රීඩාව ක්‍රීඩා කරන්න</button>
+  <button class="button highlight">සන්කේතය ලබා ගන්න ✅</button>
+
+  <div class="signal">සන්කේතය සූදානම්</div>
+
+  <h2>පසුගිය ක්‍රීඩාවේ ජයග්‍රාහකයින්:</h2>
+  <table>
+    <tr><th>නම</th><th>ජයග්‍රාහක මුදල</th><th>අදාල විස්තර</th></tr>
+    <tr><td>Ahmed Aravi</td><td>12095.827 LKR</td><td>රු. 1,521,000</td></tr>
+    <tr><td>Sudu Bandara</td><td>7411.945 LKR</td><td>රු. 931,000</td></tr>
+    <tr><td>Ishan Gunasekera</td><td>4647.119 LKR</td><td>රු. 2,340,000</td></tr>
+    <tr><td>Nilanthi Peraera</td><td>1471.349 LKR</td><td>රු. 1,880,000</td></tr>
+    <tr><td>Prasanna Hettiarachchi</td><td>16637.584 LKR</td><td>රු. 2,755,000</td></tr>
+    <tr><td>Tilak Rajapakse</td><td>12097.111 LKR</td><td>රු. 1,670,000</td></tr>
+  </table>
+
+  <div class="comments">
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="user">
+      <div class="comment-info">
+        <span>Arjuna Fernando</span>
+        <span>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා. දැන් මම වැඩ කරන්නේ ඔයා එක්ක විතරයි!</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/87.jpg" alt="user">
+      <div class="comment-info">
+        <span>Kavinda Raj</span>
+        <span>මම මුලින් විරාත්ට විශ්වාස කළේ නැහැ. මට හිතාගන්නවත් බැරිවුණා මෙහෙම සරලවම ගෙදර ඉඳන්ම සල්ලි කරන්න පුළුවන් කියලා!</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/women/70.jpg" alt="user">
+      <div class="comment-info">
+        <span>Nadeesha Kumari</span>
+        <span>මම පටන්ගත්තේ විනෝදයකට. දැන් මම පූර්ණකාලීනව සල්ලි කරනවා. ස්තුතියි විරාත්ට!</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="user">
+      <div class="comment-info">
+        <span>Ravindu Senanayake</span>
+        <span>එක රෑකින් මම ජෝලියෙන් මාසෙකින් ගන්න වැටුපට වඩා සල්ලි හම්බ කළා. විශ්වාස නොවෙන්නෙ!</span>
+      </div>
+    </div>
+    <div class="comment">
+      <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="user">
+      <div class="comment-info">
+        <span>Tharindu Bandara</span>
+        <span>මම මගේ යාළුවටත් කියලා මේක පෙන්වා දුන්නා. දැන් අපි දෙන්නාම සතියේ හැම දිනකම සල්ලි කරනවා!</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
