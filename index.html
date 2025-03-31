@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="si">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rocket Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -25,7 +24,7 @@
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
     }
-    .button-green {
+    .highlight {
       background: linear-gradient(45deg, #0f0, #0c0);
       box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
       animation: pulse 1.5s infinite;
@@ -68,25 +67,36 @@
       font-weight: bold;
       margin-bottom: 5px;
     }
+    #signal-box {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #0f0;
+    }
+    #status-box {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #ccc;
+    }
   </style>
 </head>
-
 <body>
   <div class="section">
     <h1>ඔබගේ වාරය තවම නැවතීලා නෑ. අදහස් වීමට තවත් තත්පර කිහිපයකි!</h1>
-    <button class="button">✉️ විරාත්ට ලියන්න</button>
-    <button class="button">🎮 ඇවියේටර් ක්‍රීඩාව</button>
-    <button class="button button-green">✅ සංඥා ලබාගන්න</button>
+    <button class="button" onclick="window.open('https://t.me/viratcashbot', '_blank')">✉️ විරාත්ට ලියන්න</button>
+    <button class="button" onclick="window.open('https://affpa.top/L?tag=d_3712661m_97c_&site=3712661&ad=97&r=registration', '_blank')">🎮 ඇවියේටර් ක්‍රීඩාව</button>
+    <button id="signalBtn" class="button highlight" onclick="getSignal()">✅ සංඥා ලබා ගන්න</button>
+    <div id="signal-box"></div>
+    <div id="status-box"></div>
   </div>
 
   <div class="section">
     <h2>පසුගිය වාරයේ ජයග්‍රාහකයින්</h2>
     <table>
       <tr><th>නම</th><th>අදහස</th><th>ලාභ</th></tr>
-      <tr><td>Ahmed Aravi</td><td>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා</td><td>912,350 LKR</td></tr>
-      <tr><td>Sudu Bandara</td><td>මම මුලින් විශ්වාස කළේ නැහැ, දැන් මම සතියේ හැම දිනකම සල්ලි කරනවා</td><td>2,145,700 LKR</td></tr>
-      <tr><td>Nadeesha Kumari</td><td>විනෝදයකට පටන්ගත්තෙ, දැන් පූර්ණකාලීනව සල්ලි කරනවා</td><td>1,805,600 LKR</td></tr>
-      <tr><td>Tharindu Bandara</td><td>මගේ යාළුවාත් දැන් එකට සල්ලි කරනවා!</td><td>1,523,100 LKR</td></tr>
+      <tbody id="winner-table">
+        <tr><td>Ahmed Aravi</td><td>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා</td><td>912,350 LKR</td></tr>
+        <tr><td>Sudu Bandara</td><td>මම මුලින් විශ්වාස කළේ නැහැ, දැන් මම සතියේ හැම දිනකම සල්ලි කරනවා</td><td>2,145,700 LKR</td></tr>
+      </tbody>
     </table>
   </div>
 
@@ -95,30 +105,68 @@
       <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="user">
       <div class="comment-info">
         <span>Arjuna Fernando</span>
-        <span>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා. දැන් මම වැඩ කරන්නේ ඔයා එක්ක විතරයි!</span>
+        <span>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා.</span>
       </div>
     </div>
     <div class="comment">
       <img src="https://randomuser.me/api/portraits/men/87.jpg" alt="user">
       <div class="comment-info">
         <span>Kavinda Raj</span>
-        <span>මම මුලින් විරාත්ට විශ්වාස කළේ නැහැ. මට හිතාගන්නවත් බැරිවුණා මෙහෙම සරලවම ගෙදර ඉඳන්ම සල්ලි කරන්න පුළුවන් කියලා!</span>
-      </div>
-    </div>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/women/70.jpg" alt="user">
-      <div class="comment-info">
-        <span>Nadeesha Kumari</span>
-        <span>මම පටන්ගත්තේ විනෝදයකට. දැන් මම පූර්ණකාලීනව සල්ලි කරනවා. ස්තුතියි විරාත්ට!</span>
-      </div>
-    </div>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="user">
-      <div class="comment-info">
-        <span>Ravindu Senanayake</span>
-        <span>එක රෑකින් මම ජෝලියෙන් මාසෙකින් ගන්න වැටුපට වඩා සල්ලි හම්බ කළා. විශ්වාස නොවෙන්නෙ!</span>
+        <span>මම මුලින් විරාත්ට විශ්වාස කළේ නැහැ. දැන් මම සතියේ හැම දිනකම සල්ලි කරනවා!</span>
       </div>
     </div>
   </div>
+
+  <script>
+    let isWaiting = false;
+    const signalBox = document.getElementById('signal-box');
+    const statusBox = document.getElementById('status-box');
+    const winnerTable = document.getElementById('winner-table');
+
+    function getRandomSignal() {
+      const rnd = Math.random();
+      if (rnd < 0.66) {
+        return (1 + Math.random() * 0.4).toFixed(2); // До 1.5
+      } else {
+        return (3 + Math.random() * 147).toFixed(2); // От 3 до 150
+      }
+    }
+
+    function getRandomLKR() {
+      return (Math.floor(Math.random() * 2850000) + 150000).toLocaleString() + ' LKR';
+    }
+
+    function getSignal() {
+      if (isWaiting) {
+        statusBox.textContent = "🚫 ඔබගේ වාරය තවම සිදුවෙමින් පවතී. කරුණාකර රැඳී සිටින්න.";
+        return;
+      }
+      const signal = getRandomSignal();
+      signalBox.textContent = `📡 සංඥාව: ${signal}`;
+      statusBox.textContent = "⏳ නව සංඥාව සඳහා රැඳී සිටින්න...";
+      isWaiting = true;
+
+      setTimeout(() => {
+        isWaiting = false;
+        statusBox.textContent = "✅ ඔබට දැන් නව සංඥාවක් ලබා ගත හැකියි";
+        updateWinners();
+      }, 9000);
+    }
+
+    function updateWinners() {
+      const names = ["Ishan Gunasekera", "Nilanthi Peraera", "Prasanna Hettiarachchi", "Tilak Rajapakse"];
+      const ideas = ["කෙටි කාලයකින් ලාභය ලබා ගත්තා", "අවසානයේ විශ්වාස කළා", "හොඳම තීරණය!", "වැඩේ විරටින්"];
+
+      winnerTable.innerHTML = "";
+      for (let i = 0; i < 4; i++) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${names[i]}</td>
+          <td>${ideas[i]}</td>
+          <td>${getRandomLKR()}</td>`;
+        winnerTable.appendChild(row);
+      }
+    }
+  </script>
 </body>
 </html>
