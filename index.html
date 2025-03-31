@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="si">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,27 +68,21 @@
       font-weight: bold;
       margin-bottom: 5px;
     }
-    #signalBox {
-      display: none;
-      background: #1a1f2e;
-      color: #0f0;
-      padding: 20px;
-      margin: 20px auto;
-      border: 2px solid #0f0;
-      border-radius: 10px;
-      max-width: 400px;
-      font-size: 1.4em;
-      box-shadow: 0 0 20px #0f0;
+    #signal-display {
+      font-size: 1.5em;
+      color: #00ffcc;
+      margin-top: 20px;
     }
   </style>
 </head>
+
 <body>
   <div class="section">
     <h1>ඔබගේ වාරය තවම නැවතීලා නෑ. අදහස් වීමට තවත් තත්පර කිහිපයකි!</h1>
     <button class="button">✉️ විරාත්ට ලියන්න</button>
     <button class="button">🎮 ඇවියේටර් ක්‍රීඩාව</button>
-    <button class="button button-green" onclick="showSignal()">✅ සංඥා ලබාගන්න</button>
-    <div id="signalBox"></div>
+    <button class="button button-green" onclick="getSignal()">✅ සංඥා ලබාගන්න</button>
+    <div id="signal-display"></div>
   </div>
 
   <div class="section">
@@ -133,19 +128,22 @@
   </div>
 
   <script>
-    function showSignal() {
-      const signals = [
-        "🎯 සංග්‍රහය: දැන් 7.45x දක්වා බලා සිටින්න!",
-        "🚀 ක්‍රියාත්මක වන්න: 12.8x හි අවස්ථාවක්!",
-        "📈 සුදුසු මොහොත: 6.3x දී නවතන්න!",
-        "🔥 අද දින උසස්ම ආදායම: 9.9x",
-        "💰 ඇවියේටර්: දැන්ම ක්‍රීඩා කරන්න - ඉලක්කය 15.0x!"
-      ];
-      const box = document.getElementById("signalBox");
-      const random = Math.floor(Math.random() * signals.length);
-      box.innerText = signals[random];
-      box.style.display = "block";
+    let signalActive = false;
+
+    function getSignal() {
+      const display = document.getElementById('signal-display');
+      if (signalActive) {
+        display.textContent = '🎯 ක්‍රීඩාව සිදුවෙමින් පවතී, කරුණාකර රැඳී සිටින්න...';
+        return;
+      }
+      signalActive = true;
+      const multiplier = (Math.random() * (150 - 1.1) + 1.1).toFixed(2);
+      display.textContent = `🚀 නව සංඥාවක් සූදානම්යි: ×${multiplier}`;
+      setTimeout(() => {
+        signalActive = false;
+      }, 9000);
     }
   </script>
 </body>
+
 </html>
