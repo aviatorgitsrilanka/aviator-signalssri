@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rocket Landing Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to bottom, #000000, #0d0d2b, #1a1a3d);
+      background: linear-gradient(to bottom, #060b1a, #000000);
       color: white;
       text-align: center;
     }
     .button {
-      background: linear-gradient(to right, #ff004f, #b3002d);
+      background: linear-gradient(45deg, #d4145a, #fbb03b);
       border: none;
       border-radius: 20px;
+      color: white;
       padding: 15px 30px;
       margin: 10px;
-      font-size: 18px;
-      color: white;
+      font-size: 1.2em;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff004f;
+      box-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
     }
-    .highlight {
-      background: linear-gradient(to right, #00ff00, #009900);
-      animation: glow 1.5s infinite alternate;
-    }
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 10px #00ff00;
-      }
-      to {
-        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
-      }
-    }
-    .signal {
-      margin: 20px;
-      font-size: 24px;
-      color: #00ff00;
+    .button-green {
+      background: linear-gradient(45deg, #0f0, #0c0);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
       animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
+      0% { box-shadow: 0 0 10px #0f0; }
+      50% { box-shadow: 0 0 30px #0f0; }
+      100% { box-shadow: 0 0 10px #0f0; }
+    }
+    .section {
+      padding: 30px 20px;
     }
     table {
-      width: 80%;
-      margin: 20px auto;
+      margin: 0 auto;
       border-collapse: collapse;
+      width: 80%;
+      margin-bottom: 40px;
     }
     th, td {
-      border-bottom: 1px solid white;
-      padding: 10px;
-    }
-    .comments {
-      margin-top: 40px;
+      padding: 12px;
+      border-bottom: 1px solid #444;
     }
     .comment {
+      background: #111c2b;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 700px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 20px auto;
-      max-width: 600px;
-      text-align: left;
     }
     .comment img {
       width: 60px;
@@ -74,31 +63,45 @@
       margin-right: 15px;
     }
     .comment-info span:first-child {
-      font-weight: bold;
       display: block;
+      font-weight: bold;
       margin-bottom: 5px;
+    }
+    #signalBox {
+      display: none;
+      background: #1a1f2e;
+      color: #0f0;
+      padding: 20px;
+      margin: 20px auto;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      max-width: 400px;
+      font-size: 1.4em;
+      box-shadow: 0 0 20px #0f0;
     }
   </style>
 </head>
 <body>
-  <button class="button" onclick="window.open('https://t.me/viratcashbot', '_blank')">✉️ විරාත්ට ලියන්න</button>
-  <button class="button" onclick="window.open('https://affpa.top/L?tag=d_3712661m_97c_&site=3712661&ad=97&r=registration', '_blank')">🎮 ඇවියේටර් ක්‍රීඩාව</button>
-  <button class="button highlight" onclick="alert('🚀 නව සංඥාවක් සක්‍රියයි! දැන් ක්‍රියාත්මක වන්න!')">✅ සංඥා ලබා ගන්න</button>
+  <div class="section">
+    <h1>ඔබගේ වාරය තවම නැවතීලා නෑ. අදහස් වීමට තවත් තත්පර කිහිපයකි!</h1>
+    <button class="button">✉️ විරාත්ට ලියන්න</button>
+    <button class="button">🎮 ඇවියේටර් ක්‍රීඩාව</button>
+    <button class="button button-green" onclick="showSignal()">✅ සංඥා ලබාගන්න</button>
+    <div id="signalBox"></div>
+  </div>
 
-  <div class="signal">සන්කේතය සූදානම්</div>
+  <div class="section">
+    <h2>පසුගිය වාරයේ ජයග්‍රාහකයින්</h2>
+    <table>
+      <tr><th>නම</th><th>අදහස</th><th>ලාභ</th></tr>
+      <tr><td>Ahmed Aravi</td><td>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා</td><td>912,350 LKR</td></tr>
+      <tr><td>Sudu Bandara</td><td>මම මුලින් විශ්වාස කළේ නැහැ, දැන් මම සතියේ හැම දිනකම සල්ලි කරනවා</td><td>2,145,700 LKR</td></tr>
+      <tr><td>Nadeesha Kumari</td><td>විනෝදයකට පටන්ගත්තෙ, දැන් පූර්ණකාලීනව සල්ලි කරනවා</td><td>1,805,600 LKR</td></tr>
+      <tr><td>Tharindu Bandara</td><td>මගේ යාළුවාත් දැන් එකට සල්ලි කරනවා!</td><td>1,523,100 LKR</td></tr>
+    </table>
+  </div>
 
-  <h2>පසුගිය ක්‍රීඩාවේ ජයග්‍රාහකයින්:</h2>
-  <table>
-    <tr><th>නම</th><th>ජයග්‍රාහක මුදල</th><th>අදාල විස්තර</th></tr>
-    <tr><td>Ahmed Aravi</td><td>12095.827 LKR</td><td>රු. 1,521,000</td></tr>
-    <tr><td>Sudu Bandara</td><td>7411.945 LKR</td><td>රු. 931,000</td></tr>
-    <tr><td>Ishan Gunasekera</td><td>4647.119 LKR</td><td>රු. 2,340,000</td></tr>
-    <tr><td>Nilanthi Peraera</td><td>1471.349 LKR</td><td>රු. 1,880,000</td></tr>
-    <tr><td>Prasanna Hettiarachchi</td><td>16637.584 LKR</td><td>රු. 2,755,000</td></tr>
-    <tr><td>Tilak Rajapakse</td><td>12097.111 LKR</td><td>රු. 1,670,000</td></tr>
-  </table>
-
-  <div class="comments">
+  <div class="section">
     <div class="comment">
       <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="user">
       <div class="comment-info">
@@ -127,13 +130,22 @@
         <span>එක රෑකින් මම ජෝලියෙන් මාසෙකින් ගන්න වැටුපට වඩා සල්ලි හම්බ කළා. විශ්වාස නොවෙන්නෙ!</span>
       </div>
     </div>
-    <div class="comment">
-      <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="user">
-      <div class="comment-info">
-        <span>Tharindu Bandara</span>
-        <span>මම මගේ යාළුවටත් කියලා මේක පෙන්වා දුන්නා. දැන් අපි දෙන්නාම සතියේ හැම දිනකම සල්ලි කරනවා!</span>
-      </div>
-    </div>
   </div>
+
+  <script>
+    function showSignal() {
+      const signals = [
+        "🎯 සංග්‍රහය: දැන් 7.45x දක්වා බලා සිටින්න!",
+        "🚀 ක්‍රියාත්මක වන්න: 12.8x හි අවස්ථාවක්!",
+        "📈 සුදුසු මොහොත: 6.3x දී නවතන්න!",
+        "🔥 අද දින උසස්ම ආදායම: 9.9x",
+        "💰 ඇවියේටර්: දැන්ම ක්‍රීඩා කරන්න - ඉලක්කය 15.0x!"
+      ];
+      const box = document.getElementById("signalBox");
+      const random = Math.floor(Math.random() * signals.length);
+      box.innerText = signals[random];
+      box.style.display = "block";
+    }
+  </script>
 </body>
 </html>
