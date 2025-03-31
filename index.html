@@ -1,88 +1,101 @@
-
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rocket Landing Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(180deg, #000018, #020d1d);
+      background: linear-gradient(to bottom, #000000, #0d0d2b, #1a1a3d);
       color: white;
       text-align: center;
     }
-    h1 {
-      font-size: 3rem;
-      margin-top: 2rem;
-    }
     .button {
-      background: linear-gradient(90deg, #00ff6a, #28ff84);
+      background: linear-gradient(to right, #ff004f, #b3002d);
       border: none;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      font-weight: bold;
+      border-radius: 20px;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      color: white;
       cursor: pointer;
-      color: black;
-      box-shadow: 0 0 20px #00ff6a;
-      animation: pulse 2s infinite;
+      box-shadow: 0 0 10px #ff004f;
+    }
+    .highlight {
+      background: linear-gradient(to right, #00ff00, #009900);
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00ff00;
+      }
+      to {
+        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+      }
+    }
+    .signal {
+      margin: 20px;
+      font-size: 24px;
+      color: #00ff00;
+      animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 5px #00ff6a; }
-      50% { box-shadow: 0 0 20px #00ff6a; }
-      100% { box-shadow: 0 0 5px #00ff6a; }
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
-    .table {
-      margin: 2rem auto;
+    table {
       width: 80%;
+      margin: 20px auto;
       border-collapse: collapse;
     }
-    .table th, .table td {
-      padding: 0.8rem;
-      border-bottom: 1px solid #555;
+    th, td {
+      border-bottom: 1px solid white;
+      padding: 10px;
     }
     .comments {
-      margin-top: 3rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 40px;
     }
     .comment {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      background-color: #0e1a24;
-      padding: 1rem;
-      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: left;
     }
     .comment img {
       width: 60px;
       height: 60px;
       border-radius: 50%;
+      margin-right: 15px;
     }
     .comment-info span:first-child {
       font-weight: bold;
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 5px;
     }
   </style>
 </head>
 <body>
+  <button class="button">විරාත්ට ලියන්න</button>
+  <button class="button">Aviator ක්‍රීඩාව ක්‍රීඩා කරන්න</button>
+  <button class="button highlight">සන්කේතය ලබා ගන්න ✅</button>
 
-  <h1>ඔබගේ වාරය තවම නවීකරණය වී නැත. අවසන් වීමට තවත් තත්පර කිහිපයකි!</h1>
-  <button class="button">සංකේතය ලබාගන්න</button>
+  <div class="signal">සන්කේතය සූදානම්</div>
 
-  <h2 style="margin-top: 3rem;">පසුගිය වාරයේ ජයග්‍රාහකයින්</h2>
-  <table class="table">
-    <tr><th>නම</th><th>අදහස</th><th>ලාභය</th></tr>
-    <tr><td>Ahmed Aravi</td><td>ස්තුතියි විරාත්, මම බැංකුවේ ණය වැටුප් කරලා දැන් ජෝලිය අතහැරන තැනට ආවා</td><td>912,350 LKR</td></tr>
-    <tr><td>Sudu Bandara</td><td>මම මුලින් විශ්වාස කළේ නැහැ, දැන් මම සතිපතා සල්ලි කරනවා</td><td>2,145,700 LKR</td></tr>
-    <tr><td>Nadeesha Kumari</td><td>විනෝදයක් විදිහට පටන්ගත්තා, දැන් මම පූර්ණකාලීනව කරන්නෙ</td><td>1,805,600 LKR</td></tr>
-    <tr><td>Tharindu Bandara</td><td>මගේ යාළුවටත් මේක කියලා දැන් අපි දෙන්නාම කරනවා</td><td>1,523,100 LKR</td></tr>
+  <h2>පසුගිය ක්‍රීඩාවේ ජයග්‍රාහකයින්:</h2>
+  <table>
+    <tr><th>නම</th><th>ජයග්‍රාහක මුදල</th><th>අදාල විස්තර</th></tr>
+    <tr><td>Ahmed Aravi</td><td>12095.827 LKR</td><td>රු. 1,521,000</td></tr>
+    <tr><td>Sudu Bandara</td><td>7411.945 LKR</td><td>රු. 931,000</td></tr>
+    <tr><td>Ishan Gunasekera</td><td>4647.119 LKR</td><td>රු. 2,340,000</td></tr>
+    <tr><td>Nilanthi Peraera</td><td>1471.349 LKR</td><td>රු. 1,880,000</td></tr>
+    <tr><td>Prasanna Hettiarachchi</td><td>16637.584 LKR</td><td>රු. 2,755,000</td></tr>
+    <tr><td>Tilak Rajapakse</td><td>12097.111 LKR</td><td>රු. 1,670,000</td></tr>
   </table>
 
   <div class="comments">
@@ -122,6 +135,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
