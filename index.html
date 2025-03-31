@@ -1,160 +1,35 @@
-<!DOCTYPE html>
-<html lang="si">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>බාබාතු කාර්ස් ගාබාබා</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: linear-gradient(180deg, #000011 0%, #000022 50%, #000000 100%);
-      font-family: 'Orbitron', sans-serif;
-      color: white;
-      overflow-x: hidden;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 3em;
-    }
-    button {
-      padding: 1em 2em;
-      margin: 1em;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #ff0040, #800020);
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(255,0,80,0.7);
-      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-    }
-    button:hover {
-      background: linear-gradient(145deg, #ff3366, #a00030);
-      box-shadow: 0 0 20px rgba(255,0,80,1);
-      transform: scale(1.05);
-    }
-    button:last-of-type {
-      background: linear-gradient(145deg, #00ff88, #007a4d);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
-      animation: glowPulse 2s infinite;
-    }
-    @keyframes glowPulse {
-      0% { box-shadow: 0 0 10px rgba(0,255,136,0.5); }
-      50% { box-shadow: 0 0 20px rgba(0,255,136,1); }
-      100% { box-shadow: 0 0 10px rgba(0,255,136,0.5); }
-    }
-    #signalBox {
-      margin-top: 2em;
-      font-size: 3em;
-      text-align: center;
-      min-height: 2em;
-      white-space: pre-line;
-      font-weight: bold;
-      color: white;
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
-      animation: popIn 0.3s ease;
-    }
-    @keyframes popIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    #indicator {
-      margin-top: 1em;
-      font-size: 1.2em;
-      color: #0f0;
-      animation: blink 1s infinite;
-      text-shadow: 0 0 5px #0f0;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .comment {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5em 1em;
-      border-bottom: 1px solid #444;
-      font-size: 1em;
-    }
-  </style>
-</head>
-<body>
-  <button onclick="location.href='https://t.me/viratcash_bot'">🔑 විරාට්ට ලියන්න</button>
-  <button onclick="location.href='https://affpa.top/L?tag=d_3712661m_97c_&site=3712661&ad=97&r=registration'">🎮 එවියෙටාර් ක්‍රීදාවට සම්බන්ත වන්න</button>
-  <button onclick="startSignals()">✅ සන්කෙත්ය ලබා ගන්න</button>
-  <div id="signalBox"></div>
-  <div id="indicator">සන්කෙත්ය සුදානෙමි</div>
-  <div id="comments">
-    <h3 style="text-align:center; color:#fff; margin-bottom: 0.5em;">පසුගිය් ක්‍රීදාවෙ ජය්ග්රාහක්යින්:</h3>
+<div class="comment">
+  <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="user">
+  <div class="comment-info">
+    <span>Arjuna Fernando</span>
+    <span>Спасибо Вират, я закрыл долг в банке и скоро увольняюсь с работы. Буду работать только с тобой!</span>
   </div>
-  <script>
-    var currentSignal = "";
-    let blockClick = false;
-
-    const names = [
-      "Ahmed Aravi", "Saman Kumara", "Nilanti Perera", "Tilak Rajapakse", "Chamara Sirivardena",
-      "Ishan Gunasekera", "Lakshman Jayasinghe", "Ruvani Subasingha", "Sudu Bandara", "Prasanna Hettiarachchi"
-    ];
-
-    function getRandomSignal() {
-      const low = (Math.random() * 0.5 + 1).toFixed(2);
-      const high = (Math.random() * (150 - 3) + 3).toFixed(2);
-      const shouldBeLow = Math.random() < (4 / 6);
-      return shouldBeLow ? low : high;
-    }
-
-    function getRandomComments() {
-      const commentCount = Math.floor(Math.random() * 6) + 5;
-      const usedNames = [...names].sort(() => 0.5 - Math.random()).slice(0, commentCount);
-      return usedNames.map(name => {
-        const amount = (Math.random() * (25000 - 800) + 800).toFixed(3);
-        return { name, amount };
-      });
-    }
-
-    function showComments(comments) {
-      const commentsDiv = document.getElementById('comments');
-      commentsDiv.innerHTML = `<h3 style="text-align:center; color:#fff; margin-bottom: 0.5em;">පසුගිය් ක්‍රීදාවෙ ජය්ග්රාහක්යින්:</h3>`;
-      comments.forEach(c => {
-        const row = document.createElement('div');
-        row.className = 'comment';
-        row.innerHTML = `<span>${c.name}</span><span>ජය්ග්රාස්ම මුදල: ${c.amount} LKR</span>`;
-        commentsDiv.appendChild(row);
-      });
-    }
-
-    function startSignals() {
-      const output = document.getElementById('signalBox');
-
-      if (blockClick) {
-        output.innerHTML = `<span style="color: ${currentSignal > 1.5 ? '#3f0' : '#f33'}">${currentSignal}x</span><br><small style='font-size: 0.5em'>ඔබලේ වටය තවම ක්රියාලිය් යන් එදී අන. අවසන් වනතුර රැන්දී සිටින්.</small>`;
-        return;
-      }
-
-      currentSignal = getRandomSignal();
-      output.innerHTML = `<span style="color: ${currentSignal > 1.5 ? '#3f0' : '#f33'}">${currentSignal}x</span>`;
-      blockClick = true;
-
-      const pendingComments = getRandomComments();
-      window.__lastComments = pendingComments;
-
-      setTimeout(() => {
-        blockClick = false;
-        showComments(pendingComments);
-      }, 9000);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const initialComments = getRandomComments();
-      window.__lastComments = initialComments;
-      showComments(initialComments);
-    });
-  </script>
-</body>
-</html>
+</div>
+<div class="comment">
+  <img src="https://randomuser.me/api/portraits/men/87.jpg" alt="user">
+  <div class="comment-info">
+    <span>Kavinda Raj</span>
+    <span>Сначала я не верил Вирату, думал что это ложь. Я не знал, что можно так легко зарабатывать в игре!</span>
+  </div>
+</div>
+<div class="comment">
+  <img src="https://randomuser.me/api/portraits/women/70.jpg" alt="user">
+  <div class="comment-info">
+    <span>Nadeesha Kumari</span>
+    <span>Играл просто ради интереса, а потом понял — это реально деньги. Спасибо Вирату за сигналы!</span>
+  </div>
+</div>
+<div class="comment">
+  <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="user">
+  <div class="comment-info">
+    <span>Ravindu Senanayake</span>
+    <span>Заработал за вечер больше, чем за месяц на работе. Это просто невероятно!</span>
+  </div>
+</div>
+<div class="comment">
+  <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="user">
+  <div class="comment-info">
+    <span>Tharindu Bandara</span>
+    <span>Я показал другу, теперь мы зарабатываем вместе каждый день. Спасибо, Вират!</span>
+  </div>
+</div>
