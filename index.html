@@ -132,12 +132,26 @@
 
     function getSignal() {
       const display = document.getElementById('signal-display');
+      
       if (signalActive) {
         display.textContent = '🎯 ක්‍රීඩාව සිදුවෙමින් පවතී, කරුණාකර රැඳී සිටින්න...';
         return;
       }
+      
       signalActive = true;
-      const multiplier = (Math.random() * (150 - 1.1) + 1.1).toFixed(2);
+      let multiplier;
+      const random = Math.random();
+      
+      if (random < 0.7) {
+        multiplier = (Math.random() * (1.45 - 1) + 1).toFixed(2); // 70% signals between 1 and 1.45
+      } else if (random < 0.93) {
+        multiplier = (Math.random() * (5 - 1.8) + 1.8).toFixed(2); // 23% signals between 1.8 and 5
+      } else if (random < 0.99) {
+        multiplier = (Math.random() * (70 - 15) + 15).toFixed(2); // 6% signals between 15 and 70
+      } else {
+        multiplier = (Math.random() * (190 - 100) + 100).toFixed(2); // 1% signals between 100 and 190
+      }
+      
       display.textContent = `🚀 නව සංඥාවක් සූදානම්යි: ×${multiplier}`;
       setTimeout(() => {
         signalActive = false;
